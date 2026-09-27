@@ -45,9 +45,15 @@ output {
   overflow-wrap: anywhere;
 }
 
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
 button {
   width: 100%;
-  padding: 16px 24px;
+  padding: 16px 8px;
   border: 0;
   border-radius: 12px;
   background: #3657d6;
@@ -57,15 +63,21 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:hover:not(:disabled) {
   background: #2945b3;
 }
 
-button:active {
+button:active:not(:disabled) {
   transform: translateY(1px);
 }
 
 button:focus-visible {
   outline: 3px solid #202a43;
   outline-offset: 4px;
+}
+
+button:disabled {
+  background: #e2e6f0;
+  color: #59657c;
+  cursor: not-allowed;
 }
